@@ -1,0 +1,20 @@
+
+tier: full
+
+seed: 20260607
+
+out: outputs/run
+
+min_params_b: 12.0    # documentation boundary ("larger" models, used as a check)
+mid_max_b: 32.0       # documentation boundary
+max_params_b: 70.0    # HARD cap: models >= this are forbidden
+ollama_url: "http://localhost:11434"
+
+domains: [financial, code_review]
+
+injection_strategies: [shared, diverse, adaptive]
+
+hardenings: [permissive, strict]
+
+diversity_modes: [same_model, cross_family]
+

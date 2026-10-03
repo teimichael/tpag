@@ -1,0 +1,2 @@
+{"monitor": "causal", "episodes": 20000, "true_breach_rate": 0.3974, "uncontained_commit_rate": 0.0, "false_halt_rate": 0.0, "breach_detection_recall": 1.0}
+{"monitor": "global-clock", "episodes": 20000, "true_breach_rate": 0.3974, "uncontained_commit_rate": 0.3974, "false_halt_rate": 0.20415, "breach_detection_recall": 0.0}

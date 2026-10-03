@@ -1,0 +1,13 @@
+.venv/
+outputs/
+__pycache__/
+.pytest_cache/
+*.pyc
+*.egg-info/
+build/
+dist/
+*.log
+*.jsonl.gz.tmp
+**/llm_calls.jsonl
+*.gguf
+*.safetensors

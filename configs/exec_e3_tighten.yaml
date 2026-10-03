@@ -1,0 +1,34 @@
+
+tier: full
+seed: 20260607
+out: outputs/llm/tighten
+
+domains: [financial]
+hardenings: [permissive, strict]
+injection_strategies: [shared]
+diversity_modes: [same_model, cross_family]
+
+blocks:
+  - name: tighten_same_model
+    tiers: [small, mid]
+    diversity: [same_model]
+    ks: [2]
+    domains: [financial]
+    hardenings: [permissive, strict]
+    strategies: [shared]
+    n_requests: 300
+    n_seeds: 3
+    injection_fractions: [0.0, 0.25, 0.5, 0.75, 1.0]
+    max_conditions_per_tier: 4
+
+  - name: tighten_k3
+    tiers: [small, mid]
+    diversity: [same_model, cross_family]
+    ks: [3]
+    domains: [financial]
+    hardenings: [permissive]
+    strategies: [shared]
+    n_requests: 300
+    n_seeds: 3
+    injection_fractions: [0.0, 0.5, 1.0]
+    max_conditions_per_tier: 2

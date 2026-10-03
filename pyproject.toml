@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools==80.9.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tpag"
+version = "0.1.0"
+description = "Replication package for Contracts That Compose"
+license = "MIT"
+requires-python = ">=3.13,<3.14"
+dependencies = [
+  "numpy==2.4.6",
+  "scipy==1.17.1",
+  "networkx==3.6",
+  "httpx==0.28.1",
+  "PyYAML==6.0.3",
+  "matplotlib==3.10.9",
+]
+
+[project.optional-dependencies]
+test = ["pytest==9.0.2"]
+langgraph = ["langgraph==1.2.4"]
+
+[project.scripts]
+tpag = "tpag.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+markers = ["llm: requires a local Ollama service", "slow: Monte Carlo soundness checks"]

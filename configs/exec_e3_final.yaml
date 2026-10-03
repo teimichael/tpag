@@ -1,0 +1,70 @@
+
+tier: full
+seed: 20260607
+out: outputs/llm/main
+
+domains: [financial, code_review]
+hardenings: [permissive, strict]
+injection_strategies: [shared, diverse, adaptive]
+diversity_modes: [same_model, cross_family]
+
+blocks:
+  - name: headline_smallmid
+    tiers: [small, mid]
+    diversity: [same_model, cross_family]
+    ks: [2]
+    domains: [financial]
+    hardenings: [permissive, strict]
+    strategies: [shared]
+    n_requests: 120
+    n_seeds: 2
+    injection_fractions: [0.0, 0.5, 1.0]
+    max_conditions_per_tier: 3
+
+  - name: large_check
+    tiers: [large]
+    diversity: [same_model]
+    ks: [2]
+    domains: [financial]
+    hardenings: [permissive]
+    strategies: [shared]
+    n_requests: 80
+    n_seeds: 1
+    injection_fractions: [0.0, 0.5, 1.0]
+    max_conditions_per_tier: 4
+
+  - name: strategy_probe
+    tiers: [small, mid]
+    diversity: [cross_family]
+    ks: [2]
+    domains: [financial]
+    hardenings: [permissive]
+    strategies: [diverse, adaptive]
+    n_requests: 80
+    n_seeds: 1
+    injection_fractions: [0.0, 0.5, 1.0]
+    max_conditions_per_tier: 2
+
+  - name: domain_probe
+    tiers: [small, mid]
+    diversity: [same_model, cross_family]
+    ks: [2]
+    domains: [code_review]
+    hardenings: [permissive, strict]
+    strategies: [shared]
+    n_requests: 80
+    n_seeds: 1
+    injection_fractions: [0.0, 0.5, 1.0]
+    max_conditions_per_tier: 2
+
+  - name: k3_probe
+    tiers: [small, mid]
+    diversity: [same_model, cross_family]
+    ks: [3]
+    domains: [financial]
+    hardenings: [permissive]
+    strategies: [shared]
+    n_requests: 80
+    n_seeds: 1
+    injection_fractions: [0.0, 0.5, 1.0]
+    max_conditions_per_tier: 2

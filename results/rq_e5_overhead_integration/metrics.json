@@ -1,0 +1,20 @@
+{
+  "rq": "RQ-E5",
+  "status": "measured",
+  "tier": "full",
+  "seed": 20260607,
+  "benchmark_version": "tpag-ext-1.2",
+  "wall_seconds": 1064.172,
+  "metrics": {
+    "llm_step_s": 2.652313788731893,
+    "integration": {
+      "status": "measured",
+      "model": "deepseek-r1:1.5b",
+      "live_episodes": 24,
+      "observed_violation_rate": 0.875,
+      "certificate_bound": 1.0,
+      "certificate_confidence": 0.996,
+      "certificate_sound": true
+    }
+  }
+}
